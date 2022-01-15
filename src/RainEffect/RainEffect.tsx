@@ -1,18 +1,16 @@
 import React from "react";
 import './RainEffect.css';
 import Drop from "./Drop/Drop";
-import OptionsPanel from "./OptionsPanel/OptionsPanel"
-import {Button} from "react-bootstrap";
+import RainOptionsPanel from "./RainOptionsPanel/RainOptionsPanel"
+import GenericEffect from "../GenericEffect/GenericEffect";
+import ButtonPanel from "../GenericEffect/ButtonPanel";
 
-class RainEffect extends React.Component<any, any> {
+class RainEffect extends GenericEffect {
     constructor(props: any) {
         super(props);
         this.state = {
             amount: 100,
-            showOptionsPanel: false
         }
-        this.handleShow = this.handleShow.bind(this);
-        this.handleClose = this.handleClose.bind(this);
         this.handleOnChange = this.handleOnChange.bind(this);
     }
 
@@ -30,14 +28,6 @@ class RainEffect extends React.Component<any, any> {
 
     generateDuration(){
         return (Math.random() * 5) + 1 + "s";
-    }
-
-    handleShow(){
-        this.setState({showOptionsPanel: true});
-    }
-
-    handleClose(){
-        this.setState({showOptionsPanel: false});
     }
 
     handleOnChange(a: any){
@@ -61,11 +51,17 @@ class RainEffect extends React.Component<any, any> {
 
         return (
             <div className={"rain-effect-container"}>
-                <div className={"rain-effect-button-container"}>
-                    <Button className={"rain-effect-button"} variant="primary" onClick={this.handleShow}>options</Button>
-                </div>
+                <ButtonPanel
+                    handleBack={this.handleBack}
+                    handleShow={this.handleShow}
+                />
                 {drops}
-                <OptionsPanel amount={this.state.amount} show={this.state.showOptionsPanel} handleClose={this.handleClose} handleOnChange={this.handleOnChange}/>
+                <RainOptionsPanel
+                    amount={this.state.amount}
+                    show={this.state.showOptionsPanel}
+                    handleClose={this.handleClose}
+                    handleOnChange={this.handleOnChange}
+                />
             </div>
         );
     }

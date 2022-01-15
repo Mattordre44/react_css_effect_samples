@@ -1,13 +1,7 @@
 import React from "react";
 import { Offcanvas, Form } from "react-bootstrap";
 
-class OptionsPanel extends React.Component<any, any> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-
-        }
-    }
+class RainOptionsPanel extends React.Component<any, any> {
 
     render() {
         return (
@@ -18,7 +12,7 @@ class OptionsPanel extends React.Component<any, any> {
                 <Offcanvas.Body>
                     <>
                         <Form.Label>Nombre d'éléments : {this.props.amount}</Form.Label>
-                        <Form.Range min={0} max={1000} value={this.props.amount} onChange={this.props.handleOnChange}/>
+                        <Form.Range min={0} max={500} value={this.props.amount} onChange={this.props.handleOnChange}/>
                     </>
                 </Offcanvas.Body>
             </Offcanvas>
@@ -27,4 +21,4 @@ class OptionsPanel extends React.Component<any, any> {
 
 }
 
-export default OptionsPanel;
+export default RainOptionsPanel;

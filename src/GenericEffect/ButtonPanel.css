@@ -1,0 +1,9 @@
+.effect-button-container {
+    position: absolute;
+    z-index: 2;
+}
+
+.effect-button {
+    margin-left: 10px;
+    margin-top: 10px;
+}

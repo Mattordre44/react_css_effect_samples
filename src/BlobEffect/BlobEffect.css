@@ -1,0 +1,24 @@
+div.blob-effect-container {
+    background: #000000 !important;
+    overflow: hidden;
+    height: 100vh;
+}
+
+section.blob-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #250821;
+}
+
+div.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+}
+
+div.blob-light {
+    filter: blur(50px);
+}
